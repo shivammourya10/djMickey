@@ -151,11 +151,11 @@ const MenuPage = ({ onClose }) => {
     { name: "Home", link: "/" },
     { name: "Image Gallery", link: "/#gallery" },
     { name: "Live Concert", link: "/#concert" },
-    { name: "Contact", action: () => setShowContact(true) },
+    { name: "Contact Us", action: () => setShowContact(true) },
   ];
 
   const images = {
-    Home: "https://www.denondj.com/assets/images/homepage/DenonDJ_homepage_banner_0922.jpg",
+    Home: "https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?cs=srgb&dl=pexels-isabella-mendes-107313-860707.jpg&fm=jpg",
     "Image Gallery": "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
     "Live Concert": "https://images.stockcake.com/public/6/2/9/629c22b1-49f2-4934-ab8c-cb62256cc9cb_large/dj-at-concert-stockcake.jpg",
     Contact: "https://img.freepik.com/premium-vector/deejay-business-card-design-template_208206-827.jpg?semt=ais_hybrid",
@@ -179,7 +179,7 @@ const MenuPage = ({ onClose }) => {
           initial={{ height: 10 }}
           animate={{ height: 400 }}
           transition={{ duration: 5 }}
-          className="w-1 bg-white mt-2"
+          className="w-[1px] bg-white mt-2"
         />
       </div>
 
@@ -198,7 +198,7 @@ const MenuPage = ({ onClose }) => {
 
       {/* Menu Options */}
 {/* Menu Options */}
-<div className="absolute left-[60%] w-[35%] text-6xl flex flex-col gap-8 font-bold">
+<div className="absolute left-[60%] w-[35%] text-6xl flex flex-col  font-bold">
   {menuOptions.map((option) =>
     option.link ? (
       <motion.a
@@ -207,7 +207,7 @@ const MenuPage = ({ onClose }) => {
         className="relative text-white transition glow-on-hover mb-10"
         onMouseEnter={() => setHoveredOption(option.name)}
         onMouseLeave={() => setHoveredOption(null)}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1 }}
         onClick={onClose} // Close menu before navigating
       >
         {option.name}
@@ -246,7 +246,7 @@ const MenuPage = ({ onClose }) => {
         className="relative text-white transition glow-on-hover text-left mb-8"
         onMouseEnter={() => setHoveredOption(option.name)}
         onMouseLeave={() => setHoveredOption(null)}
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1}}
       >
         {option.name}
 
@@ -282,13 +282,13 @@ const MenuPage = ({ onClose }) => {
 </div>
 
       {/* Social Media Icons */}
-      <div className="absolute bottom-10 right-10 flex gap-5">
+      <div className="absolute bottom-10 right-20  gap-8 flex gap-5 ">
         <motion.a
           href="https://youtube.com"
-          className="text-white"
+          className="text-white "
           whileHover={{ scale: 1.2, filter: "brightness(1.5)" }}
         >
-          <Youtube size={24} />
+          <Youtube size={26} />
         </motion.a>
         <motion.a
           href="https://instagram.com"
@@ -309,49 +309,43 @@ const MenuPage = ({ onClose }) => {
         />
       </div>
 
-      {/* Contact Card */}
-      {showContact && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
-          onClick={() => setShowContact(false)}
-        >
-          <motion.div
-            initial={{ scale: 0, rotateY: 180 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0, rotateY: -180 }}
-            transition={{ duration: 0.5 }}
-            className="bg-black p-10 rounded-lg border-2 border-neon-blue"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-2xl mb-4 text-neon-blue">Contact</h2>
-            <div className="flex flex-col gap-4">
-              <a
-                href="mailto:example@example.com"
-                className="text-white hover:text-neon-blue"
-              >
-                Email: example@example.com
-              </a>
-              <a
-                href="https://wa.me/1234567890"
-                className="text-white hover:text-neon-blue"
-              >
-                WhatsApp: +1234567890
-              </a>
-              <a
-                href="https://instagram.com/example"
-                className="text-white hover:text-neon-blue"
-              >
-                Instagram: @example
-              </a>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+
+{/* Contact Card */}
+{showContact && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    onClick={() => setShowContact(false)}
+  >
+    <motion.div
+      initial={{ scale: 0, rotateY: 180 }}
+      animate={{ scale: 1, rotateY: 0 }}
+      exit={{ scale: 0, rotateY: -180 }}
+      transition={{ duration: 0.5 }}
+      className="relative bg-black p-12 rounded-xl border-2 border-dull-golden overflow-hidden glow-border w-[500px] h-[350px]"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <h2 className="text-3xl mb-6 text-golden-glow text-center">Contact Us</h2>
+      <div className="flex flex-col gap-5 text-lg ">
+        <a href="mailto:example@example.com" className="text-white hover:text-golden-glow">
+          Email: example@example.com
+        </a>
+        <a href="https://wa.me/1234567890" className="text-white hover:text-golden-glow">
+          WhatsApp: +1234567890
+        </a>
+        <a href="https://instagram.com/example" className="text-white hover:text-golden-glow">
+          Instagram: @example
+        </a>
+        <h3 className="text-center mt-5">Have any inquiries? Contact us today.</h3>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
+
     </motion.div>
   );
-};
+}
 
 export default MenuPage;

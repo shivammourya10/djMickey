@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes smooth-snake-glow {
+    0% { clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%); }
+    15% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%); }
+    30% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%); }
+    50% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    70% { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
+    85% { clip-path: polygon(0% 100%, 0% 0%, 0% 0%, 0% 100%); }
+    100% { clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%); }
+  }
+  
+  .glow-border {
+    position: relative;
+    border-color: #8B7500; /* Dull golden */
+    width: 420px;
+    height: 320px;
+  }
+  
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px solid #FFD700; /* Bright golden */
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+    animation: smooth-snake-glow 5s ease-in-out infinite;
+    transition: all 0.3s ease-in-out;
+  }
