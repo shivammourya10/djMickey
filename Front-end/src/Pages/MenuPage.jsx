@@ -309,47 +309,48 @@ const MenuPage = ({ onClose }) => {
         />
       </div>
 
-      {/* Contact Card */}
-      {showContact && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
-          onClick={() => setShowContact(false)}
+     {/* Contact Card */}
+{showContact && (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
+    onClick={() => setShowContact(false)}
+  >
+    <motion.div
+      initial={{ scale: 0, rotateY: 180 }}
+      animate={{ scale: 1.5, rotateY: 0 }}
+      exit={{ scale: 0, rotateY: -180 }}
+      transition={{ duration: 0.5 }}
+      className="bg-black p-10 rounded-lg border-2 border-yellow-500 hover:shadow-yellow-500 hover:shadow-lg transition-shadow duration-300"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <h2 className="text-2xl mb-4 hover:text-yellow-500">Contact</h2>
+      <div className="flex flex-col gap-4">
+        <a
+          href="mailto:example@example.com"
+          className="text-white hover:text-yellow-400"
         >
-          <motion.div
-            initial={{ scale: 0, rotateY: 180 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0, rotateY: -180 }}
-            transition={{ duration: 0.5 }}
-            className="bg-black p-10 rounded-lg border-2 border-neon-blue"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-2xl mb-4 text-neon-blue">Contact</h2>
-            <div className="flex flex-col gap-4">
-              <a
-                href="mailto:example@example.com"
-                className="text-white hover:text-neon-blue"
-              >
-                Email: example@example.com
-              </a>
-              <a
-                href="https://wa.me/1234567890"
-                className="text-white hover:text-neon-blue"
-              >
-                WhatsApp: +1234567890
-              </a>
-              <a
-                href="https://instagram.com/example"
-                className="text-white hover:text-neon-blue"
-              >
-                Instagram: @example
-              </a>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+          Email: example@example.com
+        </a>
+        <a
+          href="https://wa.me/1234567890"
+          className="text-white hover:text-yellow-400"
+        >
+          WhatsApp: +1234567890
+        </a>
+        <a
+          href="https://instagram.com/example"
+          className="text-white hover:text-yellow-400"
+        >
+          Instagram: @example
+        </a>
+      </div>
+    </motion.div>
+  </motion.div>
+)}
+
     </motion.div>
   );
 };
