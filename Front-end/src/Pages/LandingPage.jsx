@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
@@ -52,6 +53,24 @@ const ServiceDetails = {
 const LandingPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
+  const offsetY = useRef(0); // Store scroll value without causing re-renders
+  const backgroundRef = useRef(null); // Ref for the background image
+
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      offsetY.current = window.scrollY;
+      if (backgroundRef.current) {
+        backgroundRef.current.style.transform = `translateY(${offsetY.current * 0.3}px)`;
+      }
+    };
+
+    // Use requestAnimationFrame for smoother updates
+    const handleScrollOptimized = () => requestAnimationFrame(handleScroll);
+
+    window.addEventListener("scroll", handleScrollOptimized);
+    return () => window.removeEventListener("scroll", handleScrollOptimized);
+  }, []);
 
   const openModal = (service) => {
     setSelectedService(service);
@@ -64,85 +83,86 @@ const LandingPage = () => {
     servicesRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  return (<div>
-    
+  return (
+  <div>
     <div className="relative min-h-screen bg-gradient-to-b from-blue-100 to-pink-100 font-sans">
-<SplashCursor/>
+{/* <SplashCursor/> */}
 
-
-        
       {/* Hero Section */}
-      <div className="relative w-full h-screen flex flex-col items-center justify-center text-center px-6">
-        <motion.div 
-          className="absolute top-0 left-0 w-full h-full z-0 opacity-60"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
-          <img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pet Care" className="object-cover w-full h-full" />
-        </motion.div>
-
-        <div className="relative z-10 text-white space-y-6">
-          <motion.h1
-            className="text-6xl font-extrabold drop-shadow-md mb-6"
-            initial={{ opacity: 0, y: -70 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 3 }}
-          >
-            Welcome to PetCare Haven
-          </motion.h1>
-
-          <motion.p
-            className="text-xl max-w-2xl mx-auto mb-8"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 2, delay: 0.5 }}
-          >
-            Your pet's health and happiness are our top priority. Explore our services and make life better for your furry friends.
-          </motion.p>
-
-          <motion.button
-            className="bg-pink-600 text-white py-3 px-8 rounded-lg shadow-lg text-lg font-semibold hover:bg-pink-700 transition duration-300"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1 }}
-          >
-            Get Started
-          </motion.button>
-        </div>
-
-        {/* Animated Down Arrow */}
-        <motion.div 
-          className="absolute bottom-10 cursor-pointer"
-          onClick={scrollToServices}
-          initial={{ y: 0 }}
-          animate={{ y: [0, 10, 0] }}
-          transition={{ 
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <div className="flex flex-col items-center text-white">
-            <p className="text-sm mb-2">Explore More</p>
-            <svg 
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-            </svg>
-          </div>
-        </motion.div>
+      <div className="relative w-full h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+      {/* Background with Optimized Parallax Effect */}
+      <div
+        ref={backgroundRef}
+        className="absolute top-0 left-0 w-full h-full z-0 opacity will-change-transform"
+      >
+        <img
+          src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=800"
+          alt="Pet Care"
+          className="object-cover w-full h-full"
+        />
       </div>
+
+      {/* Foreground Content */}
+      <div className="relative z-10 text-white space-y-6">
+        <motion.h1
+          className="text-6xl font-extrabold drop-shadow-md mb-6"
+          initial={{ opacity: 0, y: -70 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2 }}
+        >
+          Welcome to PetCare Haven
+        </motion.h1>
+
+        <motion.p
+          className="text-xl max-w-2xl mx-auto mb-8"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, delay: 0.3 }}
+        >
+          Your pet's health and happiness are our top priority. Explore our services and make life better for your furry friends.
+        </motion.p>
+
+        <motion.button
+          className="bg-pink-600 text-white py-3 px-8 rounded-lg shadow-lg text-lg font-semibold hover:bg-pink-700 transition duration-300"
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1 }}
+        >
+          Get Started
+        </motion.button>
+      </div>
+
+      {/* Animated Down Arrow */}
+      <motion.div
+        className="absolute bottom-10 cursor-pointer"
+        initial={{ y: 0 }}
+        animate={{ y: [0, 10, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <div className="flex flex-col items-center text-white">
+          <p className="text-sm mb-2">Explore More</p>
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
+        </div>
+      </motion.div>
+    </div>
       
 
     {/* Services Section with PixelCards */}
-        <div ref={servicesRef} className="py-20 bg-gradient-to-b from-green-100 to-purple-100">
+      <div ref={servicesRef} className="py-20 bg-gradient-to-b from-green-100 to-purple-100">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Explore Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto px-4">
             {[
