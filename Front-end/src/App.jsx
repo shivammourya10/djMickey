@@ -11,9 +11,9 @@ function App() {
 
   return (
     <>
-    {/* <LandingPage/> */}
+    <LandingPage/>
     {/* <MenuPage/> */}
-    <HorizontalScrollingLines/>
+    {/* <HorizontalScrollingLines/> */}
     </>
   )
 }
