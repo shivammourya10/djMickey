@@ -6,8 +6,8 @@ const HorizontalScrollingComponent = () => {
   const [hoveredLineIndex, setHoveredLineIndex] = useState(null);
 
   const lines = [
-    ["LANDSTREFF", "STAVANGER", "CLUB", "OMNIA"],
-    ["USHUAÏA", "VELD", "MUSIC", "FESTIVAL"],
+    ["LANDSTREFF", "STAVANGER", "CLUB", "OMNIA"], //add more words here to increase the length of the scrolling text
+    ["USHUAIA", "VELD", "MUSIC", "FESTIVAL"],
     ["SZIGET", "TOUR", "CONCERT", "EVENT"],
   ];
 
@@ -70,7 +70,7 @@ const HorizontalScrollingComponent = () => {
           {[...line, ...line].map((word, i) => (
             <motion.div
               key={`${word}-${i}`}
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
               style={{ cursor: "pointer", padding: "0 20px" }}
               onMouseEnter={() => setHoveredWord(word)}

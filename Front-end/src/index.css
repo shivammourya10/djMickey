@@ -28,6 +28,7 @@
   animation: smooth-snake-glow 5s ease-in-out infinite;
   transition: all 0.3s ease-in-out;
 }
+
 .menu-container {
   position: fixed;
   inset: 0;
@@ -172,4 +173,35 @@
   .text-6xl {
     font-size: 1.8rem;
   }
+}
+
+/* Adjustments for the middle line */
+.scroll-line:nth-child(2) {
+  margin-top: 0; /* Ensure the middle line is not pushed down */
+  width: 100%; /* Make sure the middle line spans the full width */
+  transform: translateX(0); /* Reset any transform that might be causing issues */
+}
+
+/* Smooth hover transition */
+.scroll-line:hover {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure smooth scrolling */
+.scroll-line {
+  will-change: transform;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Adjust animation for middle line */
+.scroll-line:nth-child(2) .motion-div {
+  animation: none; /* Disable animation for middle line */
+}
+
+/* Adjust for performance */
+.scroll-line {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
 }

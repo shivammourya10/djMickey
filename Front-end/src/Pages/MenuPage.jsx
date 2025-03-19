@@ -224,7 +224,7 @@ const MenuPage = ({ onClose }) => {
             initial={{ scale: 0, rotateY: 180 }}
             animate={{ scale: 1, rotateY: 0 }}
             exit={{ scale: 0, rotateY: -180 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8 }}
             className="relative bg-black p-12 rounded-xl border-2 border-dull-golden overflow-hidden glow-border w-[500px] h-[350px]"
             onClick={(e) => e.stopPropagation()}
           >

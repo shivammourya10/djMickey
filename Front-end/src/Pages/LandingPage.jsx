@@ -164,7 +164,7 @@ const LandingPage = () => {
     {/* Services Section with PixelCards */}
       <div ref={servicesRef} className="py-20 bg-gradient-to-b from-green-100 to-purple-100">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">Explore Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto px-4">
             {[
             { 
               title: "Pet Mate", 
@@ -223,7 +223,7 @@ const LandingPage = () => {
             </motion.div>
           ))}
         </div>
-      </div>
+      </div> 
 
       {/* Modal Dialog */}
       <Transition appear show={isModalOpen} as={Fragment}>
