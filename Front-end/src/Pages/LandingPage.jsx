@@ -5,6 +5,8 @@ import { Fragment } from 'react';
 import PixelCard from '../Blocks/Components/PixelCard/PixelCard';
 import SplashCursor from '../Blocks/Animations/SplashCursor/SplashCursor';
 import DecryptedText from '../Blocks/TextAnimations/DecryptedText/DecryptedText';
+import backstageDjImage from '../assets/BackStage_DJ.png';
+
 
 const ServiceDetails = {
   "Pet Mate": {
@@ -67,7 +69,7 @@ const LandingPage = () => {
   return (<div>
     
     <div className="relative min-h-screen bg-gradient-to-b from-blue-100 to-pink-100 font-sans">
-<SplashCursor/>
+{/* <SplashCursor/> */}
 
 
         
@@ -79,7 +81,7 @@ const LandingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 3 }}
         >
-          <img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pet Care" className="object-cover w-full h-full" />
+          <img src={backstageDjImage} alt="Pet Care" className="object-cover w-full h-full" />
         </motion.div>
 
         <div className="relative z-10 text-white space-y-6">
