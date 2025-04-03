@@ -27,7 +27,7 @@ const HorizontalScrollingComponent = () => {
   };
 
   return (
-    <div className="relative bg-black text-white h-screen flex flex-col justify-center items-center gap-5 overflow-hidden">
+    <div className="relative bg-black text-white h-screen flex flex-col justify-center items-center gap-5 overflow-hidden pb-40">
       {/* 🔥 Background Image Effect with Fade-in & Out */}
       <motion.div
         animate={{ opacity: hoveredWord ? 1 : 0 }}
@@ -97,3 +97,49 @@ const HorizontalScrollingComponent = () => {
 };
 
 export default HorizontalScrollingComponent;
+
+// import React, { useState } from "react";
+// import { motion } from "framer-motion";
+
+// const HorizontalScrollingComponent = () => {
+//   const [hoveredWord, setHoveredWord] = useState(null);
+//   const [hoveredLineIndex, setHoveredLineIndex] = useState(null);
+
+//   const lines = [
+//     ["LANDSTREFF", "STAVANGER", "CLUB", "OMNIA"], //add more words here to increase the length of the scrolling text
+//     ["USHUAIA", "VELD", "MUSIC", "FESTIVAL"],
+//     ["SZIGET", "TOUR", "CONCERT", "EVENT"],
+//   ];
+
+//   const imagesMap = {
+//     LANDSTREFF: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     STAVANGER: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     CLUB: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     OMNIA: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     USHUAÏA: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     VELD: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     MUSIC: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     FESTIVAL: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     SZIGET: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     TOUR: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     CONCERT: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//     EVENT: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+//   };
+
+//   return (
+//    <div>
+//       {/* Vertical Gallary Text & Line */}
+//       <div className="absolute left-2 top-1/6 flex flex-col items-center">
+//         <span className="mb-5 text-lg font-bold tracking-widest rotate-270">Gallary</span>
+//         <motion.div
+//           initial={{ height: 10 }}
+//           animate={{ height: 400 }}
+//           transition={{ duration: 5 }}
+//           className="w-[1px] bg-white mt-2"
+//         />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default HorizontalScrollingComponent;

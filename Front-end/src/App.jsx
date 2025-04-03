@@ -5,15 +5,26 @@ import './App.css'
 import LandingPage from './Pages/LandingPage'
 import MenuPage from './Pages/MenuPage'
 import HorizontalScrollingLines from './Components/HorizontalScrollComponent'
+import YT_video_Component from './Components/YT_video_Component'
+import TRy from './Components/TRy'
+import NextSection from './Components/ImageStackGalleryComponent'
+import ImageStackGallery from './Components/ImageStackGalleryComponent'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
     <LandingPage/>
     {/* <MenuPage/> */}
-    {/* <HorizontalScrollingLines/> */}
+    <HorizontalScrollingLines/>
+    <YT_video_Component/>
+     {/* <TRY/> */}
+    {/* <TRY nextSection={<NextSection />} /> */}
+
+    <TRy nextSection={<ImageStackGallery />} />
+      
+  
     </>
   )
 }
