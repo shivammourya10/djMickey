@@ -6,7 +6,7 @@ import LandingPage from './Pages/LandingPage'
 import MenuPage from './Pages/MenuPage'
 import HorizontalScrollingLines from './Components/HorizontalScrollComponent'
 import YT_video_Component from './Components/YT_video_Component'
-import TRy from './Components/TRy'
+import TRY from './Components/TRy'
 import NextSection from './Components/ImageStackGalleryComponent'
 import ImageStackGallery from './Components/ImageStackGalleryComponent'
 
@@ -15,14 +15,12 @@ function App() {
 
   return (
     <>
-    <LandingPage/>
-    {/* <MenuPage/> */}
+    <LandingPage/> 
     <HorizontalScrollingLines/>
-    <YT_video_Component/>
-     {/* <TRY/> */}
-    {/* <TRY nextSection={<NextSection />} /> */}
+     <YT_video_Component/> 
+     <TRY nextSection={<NextSection />} />
 
-    <TRy nextSection={<ImageStackGallery />} />
+    
       
   
     </>

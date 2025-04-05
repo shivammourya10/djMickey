@@ -32,7 +32,7 @@ const HorizontalScrollingComponent = () => {
       <motion.div
         animate={{ opacity: hoveredWord ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute top-[15%] left-[25%] w-[50%] h-[70%] bg-center bg-cover"
+        className=" absolute top-[12%] left-[25%] w-[50%] h-[70%] bg-center bg-cover"
         style={{
           backgroundImage: hoveredWord ? `url(${imagesMap[hoveredWord]})` : "none",
           backgroundColor: "black",

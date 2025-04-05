@@ -20,7 +20,7 @@ const VerticalGalleryTextComponent = () => (
           initial={{ height: 10 }}
           animate={{ height: 400 }}
           transition={{ duration: 5 }}
-          className="w-[1px] bg-white mt-2"
+          className="w-[1px] mt-2"
         />
       </div>
     
