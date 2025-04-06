@@ -14,16 +14,15 @@ const IMGS = [
 
 // Vertical Gallery Text & Line Component
 const VerticalGalleryTextComponent = () => (
-      <div className="absolute left-2 top-1/6 flex flex-col items-center mt-10">
-        <span className="mb-5 mt-40text-lg text-white font-bold tracking-widest rotate-270">IMAGE GALLERY</span>
-        <motion.div
-          initial={{ height: 10 }}
-          animate={{ height: 400 }}
-          transition={{ duration: 5 }}
-          className="w-[1px] mt-2"
-        />
-      </div>
-    
+  <div className="absolute left-2 top-1/6 flex flex-col items-center mt-10 z-10">
+    <span className="mb-5 mt-40text-lg text-gray-400 font-bold tracking-widest rotate-270">IMAGE GALLERY</span>
+    <motion.div
+      initial={{ height: 10 }}
+      animate={{ height: 400 }}
+      transition={{ duration: 5 }}
+      className="w-[1px] mt-2 bg-gray-700"
+    />
+  </div>
 );
 
 // Rolling Gallery Component
@@ -156,7 +155,7 @@ const RollingGallery = ({
               <img
                 src={url}
                 alt="gallery"
-                className="pointer-events-none h-[280px] w-[550px] rounded-[15px] border-[3px] border-white object-cover
+                className="mt-[-4rem] pointer-events-none h-[280px] w-[550px] rounded-[15px] border-[3px] border-white object-cover
                            transition-transform duration-300 ease-out group-hover:scale-110
                            sm:h-[220px] sm:w-[450px]"
               />
@@ -168,28 +167,44 @@ const RollingGallery = ({
   );
 };
 
-
 const ImageStackGallery = () => {
   const [isScreenSizeSm, setIsScreenSizeSm] = useState(window.innerWidth <= 640);
 
   return (
-    <div className="relative h-screen w-full bg-black overflow-hidden">
+    <div className="relative h-screen w-full bg-[#0e0e14] overflow-hidden">
+      {/* Subtle DJ Mickey watermark */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none overflow-hidden">
+        <div className="text-[15vw] font-extrabold tracking-tighter text-gray-500 uppercase">
+          DJ MICKEY
+        </div>
+      </div>
+      
+      {/* Subtle glow accents - reduced number and opacity */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-900/10 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-900/10 rounded-full blur-3xl"></div>
+      
+      {/* Single subtle background SVG */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none z-0">
+        <svg className="absolute bottom-10 right-10 w-64 h-64 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21 3v12.5c0 1.381-1.567 2.5-3.5 2.5s-3.5-1.119-3.5-2.5c0-1.381 1.567-2.5 3.5-2.5.537 0 1.028.084 1.5.236V5.618l-9 2.909V17.5c0 1.381-1.567 2.5-3.5 2.5S3 18.881 3 17.5c0-1.381 1.567-2.5 3.5-2.5.537 0 1.028.084 1.5.236V7L21 3z"/>
+        </svg>
+      </div>
+
       <VerticalGalleryTextComponent />
       
-      {/* Text Content Section */}
+      {/* Text Content Section - simplified */}
       <div className="relative pl-32 pr-8 pt-24 z-10">
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
+          initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            New Sonic Dimensions
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-100 mb-6">
+            Gallery
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
-            Experience the latest creations in immersive 3D. Rotate through recent releases
-            and discover the evolution of sound.
+          <p className="text-base md:text-lg text-gray-400 leading-relaxed max-w-2xl">
+            Experience DJ Mickey's performances and events. Drag to explore the gallery.
           </p>
         </motion.div>
       </div>

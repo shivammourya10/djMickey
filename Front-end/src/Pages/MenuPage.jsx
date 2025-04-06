@@ -45,7 +45,7 @@ const MenuPage = ({ onClose }) => {
   const menuOptions = [
     { name: "Home", link: "/" },
     { name: "Image Gallery", link: "/#gallery" },
-    { name: "Live Concert", link: "/#concert" },
+    { name: "About Us", link: "/#concert" },
     { name: "Contact Us", action: () => setShowContact(true) },
   ];
 

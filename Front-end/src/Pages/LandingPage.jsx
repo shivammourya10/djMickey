@@ -81,6 +81,7 @@ const LandingPage = () => {
             >
               Menu
             </motion.button>
+
           </div>
         </div>
       </nav>
@@ -135,7 +136,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 3 }}
             >
-              Welcome to PetCare Haven
+              Welcome to DJ Haven
             </motion.h1>
 
             <motion.p
@@ -144,7 +145,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.5 }}
             >
-              Your pet's health and happiness are our top priority. Explore our
+              Your health and happiness are our top priority. Explore our
               services and make life better for your furry friends.
             </motion.p>
 
