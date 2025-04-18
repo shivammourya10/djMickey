@@ -4,8 +4,8 @@ import { FaPlay, FaTimes, FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 const YT_video_Component = () => {
   const [showVideo, setShowVideo] = useState(false);
   const [thumbnailUrl, setThumbnailUrl] = useState('');
-  const videoId = "RowKNFztLvc";
-
+  const videoId = "_xBjcL7D1Vg";
+// video - https://youtu.be/_xBjcL7D1Vg?si=3J8znT9mSx09_oYu
   useEffect(() => {
     setThumbnailUrl(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
   }, [videoId]);
@@ -45,16 +45,16 @@ const YT_video_Component = () => {
           <div className="absolute bottom-0 left-0 p-12 z-10 transform group-hover:translate-y-2 transition-transform duration-500">
             <div className="flex items-center gap-4 mb-4">
               <span className="px-4 py-2 bg-purple-500/10 backdrop-blur-md border border-purple-500/30 rounded-full text-purple-300 text-sm font-semibold flex items-center gap-2">
-                <FaCalendarAlt /> OCTOBER 2024
+                <FaCalendarAlt /> NOVEMBER 2024
               </span>
               <span className="px-4 py-2 bg-pink-500/10 backdrop-blur-md border border-pink-500/30 rounded-full text-pink-300 text-sm font-semibold flex items-center gap-2">
-                <FaMapMarkerAlt /> AMSTERDAM
+                <FaMapMarkerAlt /> CHANDIGARH UNIVERSITY
               </span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-3 tracking-tight text-white group-hover:text-white transition-colors duration-500">MARTIN GARRIX LIVE</h1>
-            <h2 className="text-3xl md:text-5xl font-semibold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:text-white transition-colors duration-500">AMF 2024</h2>
+            <h1 className="text-5xl md:text-7xl font-bold mb-3 tracking-tight text-white group-hover:text-white transition-colors duration-500">DJ MICKEY LIVE</h1>
+            <h2 className="text-3xl md:text-5xl font-semibold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:text-white transition-colors duration-500">SUNBURN 2024</h2>
             <p className="text-xl md:text-2xl max-w-2xl leading-relaxed text-gray-300 group-hover:text-gray-100 transition-colors duration-500">
-              The show at AMF 2024 in the Johan Cruijf ArenA during ADE was crazy!! 
+              The sunburn 2024 in the Chandigarh University was crazy!! 
               Thank you for partying with me and I hope you enjoy the livest.
             </p>
           </div>
@@ -68,7 +68,7 @@ const YT_video_Component = () => {
 
         <div className="mt-12 flex justify-between items-center border-t border-gray-800 pt-8">
           <div>
-            <h3 className="text-3xl font-bold tracking-wide text-white/90">MARTIN GARRIX LIVE</h3>
+            <h3 className="text-3xl font-bold tracking-wide text-white/90">DJ MICKEY LIVE </h3>
           </div>
           <div className="text-right">
             <p className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">AMF</p>

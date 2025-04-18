@@ -42,8 +42,9 @@ function App() {
           <HorizontalScrollingLines />
           <YT_video_Component className="border-2 border-white"/> 
           <TRY nextSection={<ImageStackGallery />}/>
-          <Testimonials/>
           <About />
+          <Testimonials/>
+          
           <UpcomingEvents />
           <AboutCorporate />
           <ConsoleShareWith />

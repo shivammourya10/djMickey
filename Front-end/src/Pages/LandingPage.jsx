@@ -136,17 +136,16 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 3 }}
             >
-              Welcome to DJ Haven
+              Welcome to Haven of DJ Mickey
             </motion.h1>
 
             <motion.p
-              className="text-xl max-w-2xl mx-auto mb-8"
+              className="text-2xl max-w-2xl mx-auto mb-8"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 2, delay: 0.5 }}
             >
-              Your health and happiness are our top priority. Explore our
-              services and make life better for your furry friends.
+              India's First youngest artist to play sunburn.
             </motion.p>
 
             <motion.button
@@ -159,12 +158,7 @@ const LandingPage = () => {
             </motion.button>
           </div>
         </div>
-          {/* <YT_video_Component/> */}
-        {/* Footer */}
-        {/* <div className="bg-gray-800 py-12 text-center text-white">
-          <p className="text-lg">&copy; 2025 PetCare Haven. All rights reserved.</p>
-          <p className="text-sm mt-2">Follow us on social media</p>
-        </div> */}
+
       </div>
     </div>
   );

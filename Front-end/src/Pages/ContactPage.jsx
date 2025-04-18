@@ -181,7 +181,7 @@ const ContactPage = () => {
                         onChange={handleChange}
                         required
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
-                        placeholder="John Doe"
+                        placeholder="Your Name"
                       />
                     </div>
                     <div>
@@ -314,32 +314,43 @@ const ContactPage = () => {
           
           {/* ===== THIRD ROW: SOCIAL MEDIA ICONS ===== */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mb-16"
-          >
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
-              <h2 className="text-3xl font-bold mb-6 text-center text-white">Connect With Us</h2>
-              <div className="flex flex-wrap justify-center gap-5">
-                {[
-                  { icon: <FaInstagram className="text-3xl" />, label: "Instagram" },
-                  { icon: <FaFacebookF className="text-3xl" />, label: "Facebook" },
-                  { icon: <FaTwitter className="text-3xl" />, label: "Twitter" },
-                  { icon: <FaYoutube className="text-3xl" />, label: "YouTube" },
-                  { icon: <FaSoundcloud className="text-3xl" />, label: "SoundCloud" },
-                  { icon: <FaSpotify className="text-3xl" />, label: "Spotify" }
-                ].map((item, index) => (
-                  <a key={index} href="#" className="group" title={item.label}>
-                    <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 hover:from-purple-600 hover:to-pink-600 p-5 rounded-full text-white transition-all duration-300 border border-white/10 hover:scale-110">
-                      {item.icon}
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-          
+  initial={{ opacity: 0, y: 20 }}
+  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+  transition={{ duration: 0.5, delay: 0.5 }}
+  className="mb-16"
+>
+  <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
+    <h2 className="text-3xl font-bold mb-6 text-center text-white">Connect With Us</h2>
+    <div className="flex flex-wrap justify-center gap-5">
+      {[
+        { 
+          icon: <FaInstagram className="text-3xl" />, 
+          label: "Instagram", 
+          link: "https://www.instagram.com/djmickeyofficial99" // Replace with your Instagram URL
+        },
+
+        { 
+          icon: <FaYoutube className="text-3xl" />, 
+          label: "YouTube", 
+          link: "https://www.youtube.com/@djmickeyofficial99" // Replace with your YouTube URL
+        },
+      ].map((item, index) => (
+        <a 
+          key={index} 
+          href={item.link} // Use the link from the object
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="group" 
+          title={item.label}
+        >
+          <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 hover:from-purple-600 hover:to-pink-600 p-5 rounded-full text-white transition-all duration-300 border border-white/10 hover:scale-110">
+            {item.icon}
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</motion.div>
           {/* ===== FOURTH ROW: FAQ SECTION ===== */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
