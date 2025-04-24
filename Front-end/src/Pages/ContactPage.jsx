@@ -105,7 +105,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div ref={sectionRef} className="relative bg-black text-white py-24 overflow-hidden">
+    <div ref={sectionRef} id="Contact" className="relative bg-black text-white py-24 overflow-hidden">
       {/* Common Background Component */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">

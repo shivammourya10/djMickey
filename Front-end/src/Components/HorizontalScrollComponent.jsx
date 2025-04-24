@@ -1,5 +1,14 @@
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+
+// Import all images from the Stage_Images folder
+import BackStage_2 from "../assets/Stage_Images/BackStage_2.jpg";
+import BackStage_dark from "../assets/Stage_Images/BackStage_dark.jpg";
+import BackStage_red from "../assets/Stage_Images/BackStage_red.jpg";
+import Crowd from "../assets/Stage_Images/Crowd.jpg";
+import Mickey_logo_display from "../assets/Stage_Images/Mickey_logo_display.jpg";
+import Sunburn_campus from "../assets/Stage_Images/Sunburn_campus.jpg";
 
 const HorizontalScrollingComponent = () => {
   const [hoveredWord, setHoveredWord] = useState(null);
@@ -16,24 +25,24 @@ const HorizontalScrollingComponent = () => {
   }, [hoveredWord]);
 
   const lines = [
-    ["LANDSTREFF", "STAVANGER", "CLUB", "OMNIA"],
+    ["CHANDIGARH", "STAVANGER", "CLUB", "OMNIA"],
     ["USHUAIA", "VELD", "MUSIC", "FESTIVAL"],
-    ["SZIGET", "TOUR", "CONCERT", "EVENT"],
+    ["CAMPUS", "TOUR", "CONCERT", "EVENT"],
   ];
 
   const imagesMap = {
-    LANDSTREFF: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    STAVANGER: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    CLUB: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    OMNIA: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    USHUAIA: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    VELD: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    MUSIC: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    FESTIVAL: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    SZIGET: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    TOUR: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    CONCERT: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    EVENT: "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
+    CHANDIGARH: BackStage_2,
+    STAVANGER: BackStage_dark,
+    CLUB: BackStage_red,
+    OMNIA: Crowd,
+    USHUAIA: Mickey_logo_display,
+    VELD: Sunburn_campus,
+    MUSIC: BackStage_2,
+    FESTIVAL: BackStage_dark,
+    CAMPUS: BackStage_red,
+    TOUR: Crowd,
+    CONCERT: Mickey_logo_display,
+    EVENT: Sunburn_campus,
   };
 
   return (

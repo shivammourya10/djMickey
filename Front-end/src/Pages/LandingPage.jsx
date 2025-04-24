@@ -8,7 +8,7 @@ import HorizontalScrollingLines from "../Components/HorizontalScrollComponent";
 import YT_video_Component from "../Components/YT_video_Component";
 import TRy from '../Components/TRy'
 import ImageStackGallery from '../Components/ImageStackGalleryComponent';
-import LoginPage from "./LoginPage";
+ 
 
 
 const LandingPage = () => {
@@ -21,7 +21,7 @@ const LandingPage = () => {
       opacity: 0,
       transition: {
         ease: [0.16, 1, 0.3, 1],
-        duration: 0.6,
+        duration: 0.4,
       },
     },
     visible: {
@@ -29,7 +29,7 @@ const LandingPage = () => {
       opacity: 1,
       transition: {
         ease: [0.16, 1, 0.3, 1],
-        duration: 0.6,
+        duration: 0.4,
         when: "beforeChildren",
         staggerChildren: 0.1,
       },

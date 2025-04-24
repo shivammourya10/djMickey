@@ -45,7 +45,7 @@ const About = () => {
   };
 
   return (
-    <div className="relative bg-black text-white pt-16 sm:pt-20 pb-20 sm:pb-32">
+    <div id="About" className="relative bg-black text-white pt-16 sm:pt-20 pb-20 sm:pb-32">
       {/* Background design elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
         <div className="absolute -top-48 -left-48 w-96 h-96 rounded-full bg-blue-500 blur-[100px]"></div>

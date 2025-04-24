@@ -63,7 +63,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-pink-100 p-6 relative">
+    <div id="/" className="min-h-screen bg-gradient-to-br from-blue-100 to-pink-100 p-6 relative">
       {/* Fixed Navbar (user info on top left) */}
       <div className="fixed top-0 left-0 w-full bg-white shadow-md p-4 flex justify-between items-center z-50 h-17">
         <h2 className="text-xl font-bold">Hello, {user.name}! Welcome back</h2>

@@ -1,7 +1,10 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Youtube, Instagram } from "lucide-react";
+import With_Instrument from "../assets/With_Instrument.jpg";
+import Blue_motionblur from "../assets/Blue_motionblur.jpg";
+import White_tshirt from "../assets/White_tshirt.jpg";
+import Main_Stage from "../assets/Main_Stage.jpg";
 
 const CloseButton = ({ onClick }) => (
   <button onClick={onClick} className="absolute top-5 right-5 w-6 h-6">
@@ -30,7 +33,7 @@ const CloseButton = ({ onClick }) => (
 
 const MenuPage = ({ onClose }) => {
   const [hoveredOption, setHoveredOption] = useState(null);
-  const [showContact, setShowContact] = useState(false);
+
   const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
 
   useEffect(() => {
@@ -44,16 +47,34 @@ const MenuPage = ({ onClose }) => {
 
   const menuOptions = [
     { name: "Home", link: "/" },
-    { name: "Image Gallery", link: "/#gallery" },
-    { name: "About Us", link: "/#concert" },
-    { name: "Contact Us", action: () => setShowContact(true) },
+    { name: "Experience", link: "/#Console_Shared" },
+    { name: "About Us", link: "/#About" },
+    { name: "Contact Us", link: "/#Contact" },
   ];
+  
+  const handleScroll = (e, link) => {
+    e.preventDefault();
+  
+    if (link.includes("#")) {
+      const id = link.split("#")[1];
+      const target = document.querySelector(`#${id}`);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth",
+          block: "start",
+          inline: "nearest",});
+      }
+    } else {
+      window.location.href = link;
+    }
+  
+    onClose();
+  };
 
   const images = {
-    Home: "https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?cs=srgb&dl=pexels-isabella-mendes-107313-860707.jpg&fm=jpg",
-    "Image Gallery": "https://www.hire4event.com/apppanel/assets/artistimage/8-6645ecd675169.webp",
-    "Live Concert": "https://images.stockcake.com/public/6/2/9/629c22b1-49f2-4934-ab8c-cb62256cc9cb_large/dj-at-concert-stockcake.jpg",
-    Contact: "https://img.freepik.com/premium-vector/deejay-business-card-design-template_208206-827.jpg?semt=ais_hybrid",
+    "Home": Blue_motionblur,
+    "Experience": Main_Stage,
+    "Contact": With_Instrument,
+    "About Us": White_tshirt,
   };
 
   return (
@@ -76,9 +97,9 @@ const MenuPage = ({ onClose }) => {
       <div className="absolute left-10percent w-[45%] h-[50vh] overflow-hidden">
         <motion.img
           key={hoveredOption}
-          src={images[hoveredOption] || "https://images.pexels.com/photos/860707/pexels-photo-860707.jpeg?cs=srgb&dl=pexels-isabella-mendes-107313-860707.jpg&fm=jpg"}
+          src={images[hoveredOption] ||With_Instrument}
           alt="Menu option preview"
-          className="w-full h-full object-cover"
+          className={`object-cover object-[center_35%] ${hoveredOption === "Image Gallery" ? "w-[80%] h-[80%] mx-auto my-auto" : "w-full h-full"}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -86,19 +107,23 @@ const MenuPage = ({ onClose }) => {
       </div>
 
       {/* Menu Options */}
-      <div className="absolute left-[60%] w-[35%] text-6xl flex flex-col font-bold">
+      <div className="absolute left-[60%] w-[35%] text-6xl flex flex-col font-bold gap-8">
         {menuOptions.map((option) =>
           option.link ? (
             <motion.a
               key={option.name}
               href={option.link}
               className="relative text-white transition glow-on-hover mb-10"
-              onMouseEnter={() => setHoveredOption(option.name)}
-              onMouseLeave={() => setHoveredOption(null)}
+              onClick={(e) => handleScroll(e, option.link)}
               whileHover={{ scale: 1.1 }}
-              onClick={onClose}
             >
-              {option.name}
+              <div
+                className="relative z-10 px-2 py-3"
+                onMouseEnter={() => setHoveredOption(option.name)}
+                onMouseLeave={() => setHoveredOption(null)}
+              >
+                {option.name}
+              </div>
 
               <div className="h-[2px] w-full bg-gray-500 absolute left-0 bottom-[-20px]" />
 
@@ -130,11 +155,15 @@ const MenuPage = ({ onClose }) => {
               key={option.name}
               onClick={option.action}
               className="relative text-white transition glow-on-hover text-left mb-8"
-              onMouseEnter={() => setHoveredOption(option.name)}
-              onMouseLeave={() => setHoveredOption(null)}
               whileHover={{ scale: 1.1 }}
             >
-              {option.name}
+              <div
+                className="relative z-10 px-2 py-3"
+                onMouseEnter={() => setHoveredOption(option.name)}
+                onMouseLeave={() => setHoveredOption(null)}
+              >
+                {option.name}
+              </div>
 
               <div className="h-[2px] w-full bg-gray-500 absolute left-0 bottom-[-20px]" />
 
@@ -193,39 +222,7 @@ const MenuPage = ({ onClose }) => {
         />
       </div>
 
-      {/* Contact Card */}
-      {showContact && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center"
-          onClick={() => setShowContact(false)}
-        >
-          <motion.div
-            initial={{ scale: 0, rotateY: 180 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0, rotateY: -180 }}
-            transition={{ duration: 0.8 }}
-            className="relative bg-black p-12 rounded-xl border-2 border-dull-golden overflow-hidden glow-border w-[500px] h-[350px]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-3xl mb-6 text-golden-glow text-center">Contact Us</h2>
-            <div className="flex flex-col gap-5 text-lg">
-              <a href="mailto:example@example.com" className="text-white hover:text-golden-glow">
-                Email: example@example.com
-              </a>
-              <a href="https://wa.me/1234567890" className="text-white hover:text-golden-glow">
-                WhatsApp: +1234567890
-              </a>
-              <a href="https://instagram.com/example" className="text-white hover:text-golden-glow">
-                Instagram: @example
-              </a>
-              <h3 className="text-center mt-5">Have any inquiries? Contact us today.</h3>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
+
     </div>
   );
 };

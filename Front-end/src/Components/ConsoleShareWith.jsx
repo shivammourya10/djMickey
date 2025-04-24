@@ -93,7 +93,7 @@ const ConsoleShareWith = () => {
   };
 
   return (
-    <section className="py-8 bg-gradient-to-br from-[#0a0011] via-[#120018] to-[#18000f] text-white min-h-screen">
+    <section id='Console_Shared' className="py-8 bg-gradient-to-br from-[#0a0011] via-[#120018] to-[#18000f] text-white min-h-screen">
       {/* Background Elements */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none overflow-hidden">
         <div className="text-[18vw] font-extrabold tracking-tighter text-gray-500 uppercase rotate-12">

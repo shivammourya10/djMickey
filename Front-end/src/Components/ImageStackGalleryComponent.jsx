@@ -146,7 +146,7 @@ const RollingGallery = memo(({
   };
 
   return (
-    <div ref={galleryRef} className="relative h-[650px] w-full overflow-hidden">
+    <div ref={galleryRef} id="Image" className="relative h-[650px] w-full overflow-hidden">
       <div
         className="absolute top-0 left-0 h-full w-[48px] z-10"
         style={{
