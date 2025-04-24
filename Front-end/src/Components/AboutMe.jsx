@@ -31,8 +31,8 @@ const About = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' }
-    }
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
   };
 
   const imageVariants = {
@@ -40,8 +40,8 @@ const About = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 }
-    }
+      transition: { duration: 0.8, ease: 'easeOut', delay: 0.2 },
+    },
   };
 
   return (
@@ -54,12 +54,10 @@ const About = () => {
       </div>
 
       <div ref={ref} className="container mx-auto px-4 sm:px-6">
-      <div className="flex flex-col lg:flex-row items-center justify-between">
-        <div className="w-full sm:w-3/5 mb-10 lg:flex flex-row justify-center item-center gap-3 mb-0">
-
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
           {/* Image Section */}
           <motion.div
-            className="w-full sm:w-[38%] xl:mt-[-2rem] lg:mt-[4rem]"
+            className="w-full lg:w-1/2 xl:w-2/5"
             variants={imageVariants}
             initial="hidden"
             animate={controls}
@@ -88,64 +86,61 @@ const About = () => {
             </div>
             <div className="grid grid-cols-3 gap-2 sm:gap-4 mt-4 sm:mt-6">
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-4 border border-white/10">
-                <div className="text-lg sm:text-3xl font-bold">10+</div>
+                <div className="text-lg sm:text-3xl font-bold">5+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Years</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-4 border border-white/10">
-                <div className="text-lg sm:text-3xl font-bold">300+</div>
+                <div className="text-lg sm:text-3xl font-bold">100+</div>
                 <div className="text-xs sm:text-sm text-gray-400">Events</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-4 border border-white/10">
-                <div className="text-lg sm:text-3xl font-bold">50+</div>
+                <div className="text-lg sm:text-xl font-bold">Comming Soon</div>
                 <div className="text-xs sm:text-sm text-gray-400">Tracks</div>
               </div>
             </div>
           </motion.div>
 
           {/* Text Section */}
-          <div className="relative w-full sm:w-3/5">
-            <motion.div
-              className="w-full relative z-10"
-              variants={textVariants}
-              initial="hidden"
-              animate={controls}
-            >
-              <div className="mb-6 sm:mb-10 bg-gradient-to-br from-[#1a0033] to-[#330033] p-6 sm:p-8 rounded-xl border border-purple-600/30 shadow-[0_10px_30px_rgba(120,0,170,0.2)] backdrop-blur-sm relative overflow-hidden">
-                <div className="absolute -top-12 sm:-top-16 -right-12 sm:-right-16 w-24 sm:w-32 h-24 sm:h-32 bg-purple-600/20 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-12 sm:-bottom-16 -left-12 sm:-left-16 w-24 sm:w-32 h-24 sm:h-32 bg-pink-600/20 rounded-full blur-xl"></div>
-                <div className="relative z-10 mb-6 sm:mb-8">
-                  <h3 className="text-lg sm:text-2xl font-bold text-white uppercase tracking-wider">
-                    Know Your DJ
-                    <span className="block h-1 w-16 sm:w-20 bg-gradient-to-r from-purple-500 to-pink-500 mt-2 rounded-full animate-pulse"></span>
-                  </h3>
-                </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-300 to-red-400 bg-clip-text text-transparent drop-shadow-lg">
-                  THE STORY BEHIND THE MUSIC
-                </h2>
-                <p className="text-gray-200 mb-4 sm:mb-6 leading-relaxed italic border-l-2 border-purple-400 pl-4">
-                  DJ Mickey, born on 7 MARCH, 2001, in Rajasthan, grew up in a region renowned for its rich
-                  musical heritage. Influenced by the vibrant folk traditions of Rajasthan and the dynamic
-                  world of Bollywood, Mickey's early life was filled with diverse sounds that shaped his
-                  musical journey.
-                </p>
-                <div className="bg-[#2a0045]/60 p-4 sm:p-6 rounded-lg mb-4 backdrop-blur-sm border border-purple-500/20 transform hover:scale-[1.01] transition-transform shadow-inner">
-                  <h4 className="font-semibold text-purple-300 mb-2 sm:mb-3 flex items-center">
-                    <span className="inline-block w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
-                    MUSICAL BEGINNING
-                    <span className="inline-block w-2 h-2 bg-purple-400 rounded-full ml-2"></span>
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    Mickey's fascination with music began in his teens. Inspired by the energetic rhythms of
-                    Punjabi music and the melodious tunes of Bollywood, he started experimenting with
-                    DJ equipment gifted by his family. His initial sets, played at local events and family
-                    gatherings, showcased a unique blend of traditional Rajasthani beats and modern
-                    electronic music.
-                  </p>
-                </div>
+          <motion.div
+            className="w-full lg:w-1/2 xl:w-3/5"
+            variants={textVariants}
+            initial="hidden"
+            animate={controls}
+          >
+            <div className="mb-6 sm:mb-10 bg-gradient-to-br from-[#1a0033] to-[#330033] p-6 sm:p-8 rounded-xl border border-purple-600/30 shadow-[0_10px_30px_rgba(120,0,170,0.2)] backdrop-blur-sm relative overflow-hidden">
+              <div className="absolute -top-12 sm:-top-16 -right-12 sm:-right-16 w-24 sm:w-32 h-24 sm:h-32 bg-purple-600/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-12 sm:-bottom-16 -left-12 sm:-left-16 w-24 sm:w-32 h-24 sm:h-32 bg-pink-600/20 rounded-full blur-xl"></div>
+              <div className="relative z-10 mb-6 sm:mb-8">
+                <h3 className="text-lg sm:text-2xl font-bold text-white uppercase tracking-wider">
+                  Know Your DJ
+                  <span className="block h-1 w-16 sm:w-20 bg-gradient-to-r from-purple-500 to-pink-500 mt-2 rounded-full animate-pulse"></span>
+                </h3>
               </div>
-            </motion.div>
-          </div>
-          </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-300 to-red-400 bg-clip-text text-transparent drop-shadow-lg">
+                THE STORY BEHIND THE MUSIC
+              </h2>
+              <p className="text-gray-200 mb-4 sm:mb-6 leading-relaxed italic border-l-2 border-purple-400 pl-4">
+                DJ Mickey, born on 7 MARCH, 2001, in Rajasthan, grew up in a region renowned for its rich
+                musical heritage. Influenced by the vibrant folk traditions of Rajasthan and the dynamic
+                world of Bollywood, Mickey's early life was filled with diverse sounds that shaped his
+                musical journey.
+              </p>
+              <div className="bg-[#2a0045]/60 p-4 sm:p-6 rounded-lg mb-4 backdrop-blur-sm border border-purple-500/20 transform hover:scale-[1.01] transition-transform shadow-inner">
+                <h4 className="font-semibold text-purple-300 mb-2 sm:mb-3 flex items-center">
+                  <span className="inline-block w-2 h-2 bg-purple-400 rounded-full mr-2"></span>
+                  MUSICAL BEGINNING
+                  <span className="inline-block w-2 h-2 bg-purple-400 rounded-full ml-2"></span>
+                </h4>
+                <p className="text-gray-300 leading-relaxed">
+                  Mickey's fascination with music began in his teens. Inspired by the energetic rhythms of
+                  Punjabi music and the melodious tunes of Bollywood, he started experimenting with
+                  DJ equipment gifted by his family. His initial sets, played at local events and family
+                  gatherings, showcased a unique blend of traditional Rajasthani beats and modern
+                  electronic music.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

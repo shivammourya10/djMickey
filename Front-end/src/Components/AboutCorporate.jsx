@@ -167,12 +167,7 @@ const AboutCorporate = () => {
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact DJ Mickey now to discuss your specific requirements and get a tailored entertainment package for your corporate needs.
           </p>
-          <a 
-            href="#contact" 
-            className="inline-block px-8 py-4 bg-gradient-to-r from-gray-800 to-purple-900 rounded-full text-white font-medium text-lg hover:from-gray-900 hover:to-purple-950 transition-all shadow-lg hover:shadow-xl hover:scale-105 transform duration-300"
-          >
-            Request a Quote
-          </a>
+        
         </motion.div>
       </div>
 

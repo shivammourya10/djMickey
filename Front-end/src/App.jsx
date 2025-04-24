@@ -3,6 +3,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LoadingComponent from './Components/loading';
 import './App.css';
+import './index.css';
 
 // Lazy-loaded components
 const LandingPage = React.lazy(() => import('./Pages/LandingPage'));

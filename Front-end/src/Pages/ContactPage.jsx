@@ -105,7 +105,7 @@ const ContactPage = () => {
   ];
 
   return (
-    <div ref={sectionRef} id="Contact" className="relative bg-black text-white py-24 overflow-hidden">
+    <div ref={sectionRef} id="Contact" className="relative bg-black text-white overflow-hidden">
       {/* Common Background Component */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
@@ -132,163 +132,128 @@ const ContactPage = () => {
         
         {/* MAIN CONTENT WRAPPER */}
         <div className="max-w-7xl mx-auto">
-          {/* ===== FIRST ROW: GET IN TOUCH + CONTACT INFO ===== */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            {/* Left Column - Contact Form */}
+          {/* Main Content */}
+          <div className="space-y-8">
+            {/* Get in Touch */}
             <motion.div
               ref={formRef}
-              initial={{ opacity: 0, x: -30 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full"
+              className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl"
             >
-              <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl h-full">
-                <h2 className="text-3xl font-bold mb-6 text-white">Get in Touch</h2>
-                
-                <AnimatePresence>
-                  {formState.isSuccess && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-300"
-                    >
-                      Thank you for your message! DJ Mickey will get back to you soon.
-                    </motion.div>
-                  )}
-                  
-                  {formState.isError && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-300"
-                    >
-                      Something went wrong. Please try again later.
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="name" className="block text-gray-300 mb-2 text-sm font-medium">Your Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
-                        placeholder="Your Name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-gray-300 mb-2 text-sm font-medium">Email Address</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="eventType" className="block text-gray-300 mb-2 text-sm font-medium">Event Type</label>
-                      <select
-                        id="eventType"
-                        name="eventType"
-                        value={formData.eventType}
-                        onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
-                      >
-                        {eventTypes.map(type => (
-                          <option key={type} value={type} className="bg-gray-900">{type}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label htmlFor="date" className="block text-gray-300 mb-2 text-sm font-medium">Event Date</label>
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
-                      />
-                    </div>
-                  </div>
-                  
+              <h2 className="text-3xl font-bold mb-6 text-white">Get in Touch</h2>
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="message" className="block text-gray-300 mb-2 text-sm font-medium">Your Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
+                    <label htmlFor="name" className="block text-gray-300 mb-2 text-sm font-medium">Your Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleChange}
-                      rows="5"
+                      required
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
-                      placeholder="Tell us about your event, music preferences, or any questions you have."
-                    ></textarea>
+                      placeholder="Your Name"
+                    />
                   </div>
-                  
                   <div>
-                    <button
-                      type="submit"
-                      disabled={formState.isSubmitting}
-                      className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-bold hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl transform hover:translate-y-[-2px] disabled:opacity-70 disabled:transform-none disabled:hover:translate-y-0"
-                    >
-                      {formState.isSubmitting ? 'Submitting...' : 'Send Message'}
-                    </button>
+                    <label htmlFor="email" className="block text-gray-300 mb-2 text-sm font-medium">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
+                      placeholder="your@email.com"
+                    />
                   </div>
-                </form>
-              </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label htmlFor="eventType" className="block text-gray-300 mb-2 text-sm font-medium">Event Type</label>
+                    <select
+                      id="eventType"
+                      name="eventType"
+                      value={formData.eventType}
+                      onChange={handleChange}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
+                    >
+                      {eventTypes.map(type => (
+                        <option key={type} value={type} className="bg-gray-900">{type}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="date" className="block text-gray-300 mb-2 text-sm font-medium">Event Date</label>
+                    <input
+                      type="date"
+                      id="date"
+                      name="date"
+                      value={formData.date}
+                      onChange={handleChange}
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-gray-300 mb-2 text-sm font-medium">Your Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="5"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:border-purple-500 focus:ring-purple-500 focus:ring-1 focus:outline-none transition-colors"
+                    placeholder="Tell us about your event, music preferences, or any questions you have."
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={formState.isSubmitting}
+                    className="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-white font-bold hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl transform hover:translate-y-[-2px] disabled:opacity-70 disabled:transform-none disabled:hover:translate-y-0"
+                  >
+                    {formState.isSubmitting ? 'Submitting...' : 'Send Message'}
+                  </button>
+                </div>
+              </form>
             </motion.div>
 
-            {/* Right Column - Contact Information */}
-<motion.div
-  initial={{ opacity: 0, x: 30 }}
-  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-  transition={{ duration: 0.5, delay: 0.3 }}
-  className="w-full flex flex-col items-center justify-center p-8 rounded-3xl border border-white/10 shadow-xl h-full"
->
-  <h2 className="text-3xl font-bold mb-6 text-white">Contact Information</h2>
- <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
-  {[
-    { icon: <HiMail className="text-xl" />, label: "Email", link: "mailto:booking@djmickey.com", text: "booking@djmickey.com" },
-    { icon: <HiPhone className="text-xl" />, label: "Phone", link: "tel:+1234567890", text: "+1 (234) 567-890" },
-    { icon: <HiLocationMarker className="text-xl" />, label: "Studio", text: "123 Music Street, Mumbai" },
-    { icon: <HiCalendar className="text-xl" />, label: "Availability", text: "Booking for 2024-2025" }
-  ].map((item, index) => (
-    <div key={index} className="bg-white/5 backdrop-blur-md p-5 rounded-xl border border-white/10 hover:bg-white/10 transition-colors flex flex-col items-center justify-center">
-      <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-3 rounded-xl text-white mb-4">
-        {item.icon}
-      </div>
-      <div>
-        <h3 className="text-lg font-semibold text-white">{item.label}</h3>
-        {item.link ? (
-          <a href={item.link} className="text-gray-300 hover:text-purple-300 transition-colors">
-            {item.text}
-          </a>
-        ) : (
-          <p className="text-gray-300">{item.text}</p>
-        )}
-      </div>
-    </div>
-  ))}
-</div>
-  <svg className="absolute bottom-0 left-0 w-full h-20" viewBox="0 0 500 100" preserveAspectRatio="none">
-    <path d="M0,100 C150,200 350,0 500,100 L500,0 L0,0 Z" fill="#1a1d23" />
-  </svg>
-</motion.div>
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl mb-8"
+            >
+              <h2 className="text-3xl font-bold mb-6 text-white">Contact Information</h2>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <HiMail className="text-2xl text-purple-400" />
+                  <a href="mailto:booking@djmickey.com" className="text-gray-300 hover:text-purple-300 transition-colors">
+                    booking@djmickey.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <HiPhone className="text-2xl text-purple-400" />
+                  <a href="tel:+1234567890" className="text-gray-300 hover:text-purple-300 transition-colors">
+                    +1 (234) 567-890
+                  </a>
+                </div>
+                <div className="flex items-center gap-4">
+                  <HiLocationMarker className="text-2xl text-purple-400" />
+                  <p className="text-gray-300">123 Music Street, Mumbai</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <HiCalendar className="text-2xl text-purple-400" />
+                  <p className="text-gray-300">Booking for 2024-2025</p>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* ===== SECOND ROW: MAP (FULL WIDTH) ===== */}
@@ -314,43 +279,43 @@ const ContactPage = () => {
           
           {/* ===== THIRD ROW: SOCIAL MEDIA ICONS ===== */}
           <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-  transition={{ duration: 0.5, delay: 0.5 }}
-  className="mb-16"
->
-  <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
-    <h2 className="text-3xl font-bold mb-6 text-center text-white">Connect With Us</h2>
-    <div className="flex flex-wrap justify-center gap-5">
-      {[
-        { 
-          icon: <FaInstagram className="text-3xl" />, 
-          label: "Instagram", 
-          link: "https://www.instagram.com/djmickeyofficial99" // Replace with your Instagram URL
-        },
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="mb-16"
+          >
+            <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl ">
+              <h2 className="text-3xl font-bold mb-6 text-center text-white">Connect With Us</h2>
+              <div className="flex flex-wrap justify-center gap-5">
+                {[
+                  { 
+                    icon: <FaInstagram className="text-3xl" />,
+                    label: "Instagram", 
+                    link: "https://www.instagram.com/djmickeyofficial99" // Replace with your Instagram URL
+                  },
 
-        { 
-          icon: <FaYoutube className="text-3xl" />, 
-          label: "YouTube", 
-          link: "https://www.youtube.com/@djmickeyofficial99" // Replace with your YouTube URL
-        },
-      ].map((item, index) => (
-        <a 
-          key={index} 
-          href={item.link} // Use the link from the object
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="group" 
-          title={item.label}
-        >
-          <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 hover:from-purple-600 hover:to-pink-600 p-5 rounded-full text-white transition-all duration-300 border border-white/10 hover:scale-110">
-            {item.icon}
-          </div>
-        </a>
-      ))}
-    </div>
-  </div>
-</motion.div>
+                  { 
+                    icon: <FaYoutube className="text-3xl" />, 
+                    label: "YouTube", 
+                    link: "https://www.youtube.com/@djmickeyofficial99" // Replace with your YouTube URL
+                  },
+                ].map((item, index) => (
+                  <a 
+                    key={index} 
+                    href={item.link} // Use the link from the object
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="group" 
+                    title={item.label}
+                  >
+                    <div className="bg-gradient-to-br from-purple-600/20 to-pink-600/20 hover:from-purple-600 hover:to-pink-600 p-5 rounded-full text-white transition-all duration-300 border border-white/10 hover:scale-110">
+                      {item.icon}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
           {/* ===== FOURTH ROW: FAQ SECTION ===== */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -399,7 +364,7 @@ const ContactPage = () => {
               ))}
             </div>
             
-            <div className="text-center">
+            <div className="text-center mb-10">
               <p className="text-gray-400 mb-8">Still have questions? Contact us directly</p>
               <a 
                 href="mailto:info@djmickey.com" 
