@@ -50,7 +50,7 @@ This repository contains the code for the **Menu Page** of a DJ Portfolio websit
 - **React Router** for navigation between sections.
 - **Framer Motion** (or **GSAP**) for animations.
 - **CSS/SCSS** for styling and layout.
-- **YouTube API** for fetching live concert video (optional).
+- **YouTube API** for fetching live concert video.
 
 ---
 
