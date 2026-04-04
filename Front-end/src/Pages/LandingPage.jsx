@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Dialog } from "@headlessui/react";
 import Main_stage from "../assets/Main_Stage.jpg";
 import Logo from "../assets/Logo.jpg";
 import MenuPage from "./MenuPage";
-import HorizontalScrollingLines from "../Components/HorizontalScrollComponent";
-import YT_video_Component from "../Components/YT_video_Component";
-import TRy from '../Components/TRy'
-import ImageStackGallery from '../Components/ImageStackGalleryComponent';
- 
-
 
 const LandingPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,7 +75,6 @@ const LandingPage = () => {
             >
               Menu
             </motion.button>
-
           </div>
         </div>
       </nav>
@@ -105,8 +98,6 @@ const LandingPage = () => {
               className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center"
             >
               <MenuPage onClose={() => setIsMenuOpen(false)} />
-
-
             </motion.div>
           </Dialog>
         )}
@@ -158,7 +149,6 @@ const LandingPage = () => {
             </motion.button>
           </div>
         </div>
-
       </div>
     </div>
   );

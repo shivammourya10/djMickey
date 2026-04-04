@@ -2,24 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background-color: #000;
+}
+
 @keyframes smooth-snake-glow {
-  0% { clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%); }
-  15% { clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%); }
-  30% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%); }
-  50% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
-  70% { clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%); }
-  85% { clip-path: polygon(0% 100%, 0% 0%, 0% 0%, 0% 100%); }
-  100% { clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%); }
+  0% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  }
+  15% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  }
+  30% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  70% {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  85% {
+    clip-path: polygon(0% 100%, 0% 0%, 0% 0%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  }
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.7; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .dj-mickey-bg {
@@ -65,7 +97,9 @@
   filter: blur(100px);
   z-index: 0;
   pointer-events: none;
-  animation: pulse-slow 8s infinite alternate, float 15s infinite ease-in-out;
+  animation:
+    pulse-slow 8s infinite alternate,
+    float 15s infinite ease-in-out;
 }
 
 .glow-orb-pink {
@@ -79,7 +113,9 @@
   filter: blur(100px);
   z-index: 0;
   pointer-events: none;
-  animation: pulse-slow 8s infinite alternate, float 15s infinite ease-in-out reverse;
+  animation:
+    pulse-slow 8s infinite alternate,
+    float 15s infinite ease-in-out reverse;
 }
 
 .dj-card {
@@ -106,7 +142,7 @@
 
 .glow-border {
   position: relative;
-  border-color: #8B7500; /* Dull golden */
+  border-color: #8b7500; /* Dull golden */
   width: 420px;
   height: 320px;
 }
@@ -115,7 +151,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  border: 3px solid #FFD700; /* Bright golden */
+  border: 3px solid #ffd700; /* Bright golden */
   clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
   animation: smooth-snake-glow 5s ease-in-out infinite;
   transition: all 0.3s ease-in-out;
@@ -271,7 +307,9 @@
 .scroll-line:nth-child(2) {
   margin-top: 0; /* Ensure the middle line is not pushed down */
   width: 100%; /* Make sure the middle line spans the full width */
-  transform: translateX(0); /* Reset any transform that might be causing issues */
+  transform: translateX(
+    0
+  ); /* Reset any transform that might be causing issues */
 }
 
 /* Smooth hover transition */
@@ -298,11 +336,14 @@
   -ms-backface-visibility: hidden;
 }
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
 }
-
